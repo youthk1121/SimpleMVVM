@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Simple MVVM</string>
+    <string name="input_hint">input word</string>
+    <string name="add_button">add</string>
+</resources>
