@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.simplemvvm.SimpleMvvmApplication
 import com.example.simplemvvm.databinding.MainFragmentBinding
 
 class MainFragment : Fragment() {
@@ -15,7 +16,9 @@ class MainFragment : Fragment() {
         fun newInstance() = MainFragment()
     }
 
-    private val viewModel: MainViewModel by viewModels()
+    private val viewModel: MainViewModel by viewModels{
+        MainViewModel.Factory((requireActivity().application as SimpleMvvmApplication).diContainer.wordRepository)
+    }
 
     private lateinit var binding: MainFragmentBinding
 
