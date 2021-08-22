@@ -17,7 +17,8 @@ class MainFragment : Fragment() {
     }
 
     private val viewModel: MainViewModel by viewModels{
-        MainViewModel.Factory((requireActivity().application as SimpleMvvmApplication).diContainer.wordRepository)
+        val diContainer = (requireActivity().application as SimpleMvvmApplication).diContainer
+        MainViewModel.Factory(diContainer.getWordUseCase, diContainer.registerWordUseCase)
     }
 
     private lateinit var binding: MainFragmentBinding
